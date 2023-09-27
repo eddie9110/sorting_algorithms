@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * insertion_sort_list - a function that sorts a doubly linked list 
+ * insertion_sort_list - a function that sorts a doubly linked list
  * using the insertion sort algorithm
  * @list: the doubly linked list to be sorted
 */
@@ -17,7 +17,9 @@ void insertion_sort_list(listint_t **list)
 
 	while (pntr)
 	{
-		while ((pntr->n > pntr->next->n) && pntr->next) /*comparing the data part of adjacent nodes*/
+		while (pntr->next && (pntr->n > pntr->next->n)) /*comparing the
+								 *data part of adjacent nodes
+								 */
 		{
 			temp_pntr = pntr->next;
 			pntr->next = temp_pntr->next;
@@ -36,6 +38,7 @@ void insertion_sort_list(listint_t **list)
 			else
 				*list = temp_pntr;
 			print_list(*list);
-		} pntr = pntr->next;
+		}
+		pntr = pntr->next;
 	}
 }
